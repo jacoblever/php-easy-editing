@@ -26,7 +26,7 @@ $config->currentCodeName(function() {
 <html>
 	<head>
 		<title>PHP Easy Editing Example</title>		
-		<? echo EasyEditing::getHtmlHeader('/jacoblever/easy-editing');?>
+		<? echo EasyEditing::getHtmlHeader('src/');?>
 	</head>
 	<body>
 		<? $easyEditingObject1 = new EasyEditing($pdo, 1);
