@@ -151,9 +151,6 @@ class EasyEditingConfiguration {
 	}
 }
 
-// todo do we need dirname(__FILE__)?
-include dirname(__FILE__) . '/config.php';
-
 class EasyEditing {
 
 	/** @type int */
@@ -165,8 +162,14 @@ class EasyEditing {
 	/**
 	 * @param PDO $db
 	 * @param int $id
+	 * @throws EasyEditingException
 	 */
 	public function __construct(PDO $db, $id) {
+
+		if(is_null(EasyEditingConfiguration::$current)) {
+			throw new EasyEditingException("EasyEditingConfiguration must be setup before an EasyEditing instance is constructed");
+		}
+
 		$this->id = $id;
 		$this->db = $db;
 
