@@ -202,7 +202,7 @@ class EasyEditing {
 	 */
 	public function getContent() {
 		
-		$item = $this->getItem($this->db, $this->id);
+		$item = $this->getItem();
 
 		if(!EasyEditingConfiguration::$current->isClearedFor($item->clearanceLevel)) {
 			return $item->content;
@@ -307,7 +307,7 @@ class EasyEditing {
 	 * @throws EasyEditingException
 	 */
 	private function update($content) {
-		if(EasyEditingConfiguration::$current->isClearedFor(self::getItem()->clearanceLevel)) {
+		if(EasyEditingConfiguration::$current->isClearedFor($this->getItem()->clearanceLevel)) {
 			$stmt = $this->db->prepare(sprintf('UPDATE %s SET content = :content WHERE id = :id LIMIT 1;',
 				EasyEditingConfiguration::$current->tableName));
 			$stmt->execute(array(

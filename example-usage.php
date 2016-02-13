@@ -1,5 +1,4 @@
 <?
-
 // Put your database login details here
 $db_host = 'host';
 $db_user = 'user';
