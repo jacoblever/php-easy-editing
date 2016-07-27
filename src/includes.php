@@ -1,5 +1,5 @@
 <?
-// Include this file at the start of all pages which use php-easy-editing
+// Include this file at the start of all pages which use phpEasyEditing
 
 require_once 'classes/EasyEditingException.php';
 require_once 'classes/EasyEditingUserType.php';
