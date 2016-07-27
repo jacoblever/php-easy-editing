@@ -1,6 +1,6 @@
 <?php
 
-class EasyEditing {
+class EasyEditingElement {
 
 	/** @type int */
 	private $id;
@@ -220,21 +220,5 @@ class EasyEditing {
 				'clearanceLevel' => EasyEditingConfiguration::$current->levelNeededForAdmin
 			));
 		}
-	}
-
-	/**
-	 * The script and link tags to put in your html head.
-	 *
-	 * @param string $basePath The path to the folder containing the EasyEditing code (defaults to '/easy-editing/')
-	 * @return string
-	 */
-	public static function getHtmlHeader($basePath = '/easy-editing/') {
-		if(substr($basePath, -1) != '/') {
-			$basePath .= '/';
-		}
-
-		return '<script type="text/javascript" src="' . $basePath . 'ckeditor/ckeditor.js"></script>
-		<link rel="stylesheet" type="text/css" href="' . $basePath . 'styles.css" />
-		<script type="text/javascript" src="' . $basePath . 'scripts.js"></script>';
 	}
 }

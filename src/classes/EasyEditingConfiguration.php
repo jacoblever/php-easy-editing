@@ -7,7 +7,7 @@ class EasyEditingConfiguration {
 	private $userTypesGetter;
 	private $currentCodeNameGetter;
 
-	/** @type UserType[] */
+	/** @type EasyEditingUserType[] */
 	private $userTypesCache;
 
 	/** @type string */
@@ -54,7 +54,7 @@ class EasyEditingConfiguration {
 
 	/**
 	 * @private Should not be used externally
-	 * @return UserType[]
+	 * @return EasyEditingUserType[]
 	 */
 	public function getUserTypes() {
 		if(is_null($this->userTypesCache)) {
@@ -106,5 +106,21 @@ class EasyEditingConfiguration {
 	 */
 	public function isClearedForAdmin() {
 		return $this->isClearedFor($this->levelNeededForAdmin);
+	}
+
+	/**
+	 * The script and link tags to put in your html head.
+	 *
+	 * @param string $basePath The path to the folder containing the EasyEditing code (defaults to '/easy-editing/')
+	 * @return string
+	 */
+	public static function getHtmlHeaderTags($basePath = '/easy-editing/') {
+		if(substr($basePath, -1) != '/') {
+			$basePath .= '/';
+		}
+
+		return '<script type="text/javascript" src="' . $basePath . 'ckeditor/ckeditor.js"></script>
+		<link rel="stylesheet" type="text/css" href="' . $basePath . 'styles.css" />
+		<script type="text/javascript" src="' . $basePath . 'scripts.js"></script>';
 	}
 }

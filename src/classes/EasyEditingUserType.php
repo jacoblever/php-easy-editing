@@ -1,6 +1,6 @@
 <?php
 
-class UserType {
+class EasyEditingUserType {
 
 	/** @type string */
 	private $displayName;
