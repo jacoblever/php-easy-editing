@@ -12,9 +12,9 @@ include 'src/includes.php';
 $config = new EasyEditingConfiguration();
 $config->userTypes(function() {
 	$types = array();
-	$types[] = new EasyEditingUserType('Member', 'member');
-	$types[] = new EasyEditingUserType('Admin', 'admin');
 	$types[] = new EasyEditingUserType('Webmaster', 'webmaster');
+	$types[] = new EasyEditingUserType('Admin', 'admin');
+	$types[] = new EasyEditingUserType('Normal Member', 'member');
 	return $types;
 });
 $config->levelNeededForAdmin = 'webmaster';

@@ -15,13 +15,13 @@ $config = new EasyEditingConfiguration();
  - _Registered_ users who are allowed to edit element,
  - _Administrator_ users who can edit elements and set what types of registered users can edit them (this is configurable per element).
 
-So now we tell phpEasyEditing what types of user exist in the system. The users are ordered, ie users have all the powers of a user higher in the list. We also specify the user level needed to be an Administrator, all users above this one will only count as Regestered users.
+So now we tell phpEasyEditing what types of user exist in the system. The users are ordered, ie users have all the powers of a user below them in the list. We also specify the user level needed to be an Administrator, all users below this one will only count as Regestered users.
 ```php
 $config->userTypes(function() {
 	$types = array();
-	$types[] = new EasyEditingUserType('Normal Member', 'member');
-	$types[] = new EasyEditingUserType('Admin', 'admin');
 	$types[] = new EasyEditingUserType('Webmaster', 'webmaster');
+	$types[] = new EasyEditingUserType('Admin', 'admin');
+	$types[] = new EasyEditingUserType('Normal Member', 'member');
 	return $types;
 });
 $config->levelNeededForAdmin = 'webmaster';

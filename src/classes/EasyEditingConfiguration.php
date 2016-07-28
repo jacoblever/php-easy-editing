@@ -87,12 +87,11 @@ class EasyEditingConfiguration {
 		if(is_null($loggedInUserType) || $loggedInUserType == '') {
 			return false;
 		}
-
 		foreach($this->getUserTypes() as $type) {
-			if($type->getCodeName() == $userTypeCodeName) {
+			if($type->getCodeName() == $loggedInUserType) {
 				return true;
 			}
-			if($type->getCodeName() == $loggedInUserType) {
+			if($type->getCodeName() == $userTypeCodeName) {
 				return false;
 			}
 		}
