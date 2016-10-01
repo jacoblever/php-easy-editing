@@ -17,8 +17,15 @@ $config->userTypes(function() {
 	$types[] = new EasyEditingUserType('Normal Member', 'member');
 	return $types;
 });
+
+// Only a user logged in as webmaster (eg currentCodeName below returns 'webmaster')
+// and above can change who can edit elements
 $config->levelNeededForAdmin = 'webmaster';
+
 $config->currentCodeName(function() {
+	// This should return the code for the EasyEditingUserType of the currently
+	// logged in user
+	// Here we are hard coding that everyone is a webmaster (don't do this!)
 	return 'webmaster';
 });
 
